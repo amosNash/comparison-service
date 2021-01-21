@@ -6,7 +6,7 @@ class App extends React.component {
     super(props);
     this.state = {
 
-    }
+    };
   }
 
 
@@ -15,7 +15,7 @@ class App extends React.component {
   render () {
     return (
       <h1>HELLO!</h1>
-    )
+    );
   }
 }
 
