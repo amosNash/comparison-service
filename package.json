@@ -1,17 +1,27 @@
 {
-  "name": "",
+  "name": "FEC-Blitva",
   "version": "",
-  "description": "",
+  "description": "Item comparison service for front end capstone",
   "author": "",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "react-dev": "webpack --mode=development --watch"
   },
   "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0"
   }
 }
