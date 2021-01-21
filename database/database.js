@@ -8,3 +8,11 @@ db.once('open', () => {
 });
 
 
+const comparisonSchema = new mongoose.Schema({
+  productId: Number,
+  comparableItems: [{type: Number}]
+});
+
+const Comparison = mongoose.model('Comparison', comparisonSchema);
+
+module.exports = Comparison;
