@@ -9,7 +9,8 @@
   },
   "scripts": {
     "server-dev": "nodemon server/server.js",
-    "react-dev": "webpack --mode=development --watch"
+    "react-dev": "webpack --mode=development --watch",
+    "seed": "node database/seeding.js"
   },
   "dependencies": {
     "express": "^4.17.1",

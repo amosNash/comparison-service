@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/Itemcomparison', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/itemComparison', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
