@@ -7,7 +7,6 @@ db.once('open', () => {
   console.log('CONNECTED TO DB');
 });
 
-
 const comparisonSchema = new mongoose.Schema({
   productId: Number,
   comparableItems: [{type: Number}]

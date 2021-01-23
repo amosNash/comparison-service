@@ -1,4 +1,6 @@
 
+
+
 //helper function
 //pick 5 random numbers between 1000-1100
 const getComparableItemsId = (productId) => {
