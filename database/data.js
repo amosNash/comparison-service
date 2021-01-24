@@ -1,24 +1,20 @@
-
-
-
 //helper function
 //pick 5 random numbers between 1000-1100
 const getComparableItemsId = (productId) => {
-  //pick 5 random numbers between 1000-1100
-  //can't pick the same number as the product
   let productIds = [];
-
-  for (let j = 0; j < 5; j++) {
+  while (productIds.length < 5) {
     let randomNum = Math.floor(Math.random() * (1100 - 1000));
     randomNum = randomNum + 1000;
-    productIds.push(randomNum);
-  }
-  //check to see if all values are different than the comparing product
-  for (let k = 0; k < productIds.length; k++) {
-    if (productIds[k] === productId) {
-      //if same val then call func again
-      getComparableItemsId(productId);
+    if (randomNum === productId) {
+      continue;
     }
+    //check to make sure the number isn't already in the productIds array
+    for (let i = 0; i < productIds.length; i++) {
+      if (randomNum === productIds[i]) {
+        continue;
+      }
+    }
+    productIds.push(randomNum);
   }
   //return an array of 5 numbers
   return productIds;
