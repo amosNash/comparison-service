@@ -8,7 +8,10 @@ db.once('open', () => {
 });
 
 const comparisonSchema = new mongoose.Schema({
-  productId: Number,
+  productId: {
+    type: Number,
+    unique: true
+  },
   comparableItems: [{type: Number}]
 });
 
