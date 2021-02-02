@@ -19,6 +19,8 @@ app.get('/comparison/:productId/getSimilarItems', (req, res) => {
       res.sendStatus(404);
     } else {
       res.status(200).send(items);
+      //items is an array of productIds
+      //will use these productIds to make more API requests for item info
     }
   });
 });
