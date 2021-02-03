@@ -4,12 +4,25 @@ const port = 4005;
 const bodyParser = require('body-parser');
 const db = require('../database/database.js');
 const query = require('../database/query.js');
+const cors = require('cors');
 
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(cors());
+
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200
+};
+
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 
-app.use(express.static(__dirname + '/../client/dist'));
+// app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../public'));
+
+// app.use('/:productId', express.static( __dirname + '/../public'));
+
+
 
 app.get('/comparison/:productId/getSimilarItems', (req, res) => {
   let productId = req.params.productId;
