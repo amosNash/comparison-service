@@ -16,6 +16,8 @@ class App extends React.Component {
     };
     this.getSimilarItems = this.getSimilarItems.bind(this);
     this.getItemDescription = this.getItemDescription.bind(this);
+    this.getItemNames = this.getItemNames.bind(this);
+    this.getItemBrands = this.getItemBrands.bind(this);
   }
 
   //get item info
@@ -26,14 +28,38 @@ class App extends React.Component {
     let item4 = productIds[3];
     let item5 = productIds[4];
     let item6 = productIds[5];
-    axios.get('http://ec2-18-217-85-161.us-east-2.compute.amazonaws.com:4004/descriptions/multiple', productIds)
+    axios.get(`http://ec2-18-217-85-161.us-east-2.compute.amazonaws.com:4004/descriptions/multiple?${item1}=${item1}&${item2}=${item2}&${item3}=${item3}&${item4}=${item4}&${item5}=${item5}&${item6}=${item6}`)
       .then((response) => {
-        console.log(response);
+        let itemDescriptions = response.data;
+        this.getItemNames(itemDescriptions);
+        this.getItemBrands(itemDescriptions);
       })
       .catch(err => {
         console.log(err);
       });
   }
+
+  //get ItemNames
+  getItemNames (items) {
+    let itemNames = [];
+    for (let i = 0; i < items.length; i++) {
+      itemNames.push(items[i].itemName);
+    }
+    this.setState({
+      names: itemNames
+    });
+  }
+  //get Item Brands
+  getItemBrands (items) {
+    let itemBrands = [];
+    for (let i = 0; i < items.length; i++) {
+      itemBrands.push(items[i].brand);
+    }
+    this.setState({
+      brands: itemBrands
+    });
+  }
+
   //get items from comparison/getSimilarItems/comparison
   getSimilarItems (id) {
     let productId = id;
