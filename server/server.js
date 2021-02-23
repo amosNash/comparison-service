@@ -20,11 +20,11 @@ app.use(bodyParser.json());
 // app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.static(__dirname + '/../public'));
 
-// app.use('/:productId', express.static( __dirname + '/../public'));
+app.use('/:productId', express.static( __dirname + '/../public'));
 
 
 
-app.get('/comparison/:productId/getSimilarItems', (req, res) => {
+app.get('/comparison/getSimilarItems/:productId', (req, res) => {
   let productId = req.params.productId;
   //need to get 5 productIds from Database
   query.getSimilarItemsProductId(productId, (err, items) => {
