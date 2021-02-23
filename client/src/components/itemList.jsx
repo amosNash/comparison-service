@@ -1,6 +1,8 @@
 import React from 'react';
 import Name from './name.jsx';
 import Brand from './brand.jsx';
+import Price from './price.jsx';
+import Photo from './photo.jsx';
 
 const ItemList = (props) => (
   //should be a table

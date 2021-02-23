@@ -61,6 +61,16 @@ class App extends React.Component {
     console.log(this.state.brands);
   }
 
+  //get price
+  getPrices (productIds) {
+    axios.post('http://ec2-3-141-67-137.us-east-2.compute.amazonaws.com:4003/priceandinventory/id/multiple');
+  }
+
+  //get photos
+
+
+  //get ratings
+
   //get items from comparison/getSimilarItems/comparison
   getSimilarItems (id) {
     let productId = id;
