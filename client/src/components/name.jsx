@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Item = (props) => (
+const Name = (props) => (
   <td>
-    Photo1
+    {props.name}
   </td>
   //info to display
   //photo --> photo service
@@ -15,4 +15,4 @@ const Item = (props) => (
   //
 );
 
-export default Item;
+export default Name;

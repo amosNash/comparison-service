@@ -58,6 +58,7 @@ class App extends React.Component {
     this.setState({
       brands: itemBrands
     });
+    console.log(this.state.brands);
   }
 
   //get items from comparison/getSimilarItems/comparison
@@ -87,18 +88,17 @@ class App extends React.Component {
   //componentDidMount shall call getSimilarItems
   componentDidMount () {
     //get productId from url or 1000
+    let url = window.location.href;
+    let productId = url.split('/')[3] || 1000;
     //call getSimilarItems with productId
-    this.getSimilarItems(1000);
+    this.getSimilarItems(productId);
   }
-
-
-  //pass down similar items to ItemList
 
   render () {
     return (
       <div>
         <Title>Comparison Service</Title>
-        <ItemList similarItems={this.state.similarItems} item={this.state.item}></ItemList>
+        <ItemList names={this.state.names} brands={this.state.brands}></ItemList>
       </div>
     );
   }
