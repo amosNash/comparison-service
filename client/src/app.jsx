@@ -160,7 +160,6 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Title>Comparison Service</Title>
         <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos} ratings={this.state.ratings} starRatings={this.state.starRatings}></ItemList>
       </div>
     );
