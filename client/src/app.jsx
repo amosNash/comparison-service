@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Title } from '../style.js';
 
-class App extends React.component {
-  constructor () {
-    super(props);
+class App extends React.Component {
+  constructor (props) {
+    super (props);
     this.state = {
-
+      item: null
     };
   }
 
-
-
-
   render () {
     return (
-      <h1>HELLO!</h1>
+      <div>
+        <Title>Comparison Service</Title>
+      </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('comparison'));
