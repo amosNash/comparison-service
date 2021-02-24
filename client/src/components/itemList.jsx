@@ -10,7 +10,7 @@ const ItemList = (props) => (
 
   <table>
     <tr>
-      <th>Photo</th>
+      <th></th>
     </tr>
     <br></br>
     <tr>
@@ -25,6 +25,7 @@ const ItemList = (props) => (
     <br></br>
     <tr>
       <th>Price</th>
+      {props.prices.map(price => <Price price={price} />)}
     </tr>
     <br></br>
     <tr>

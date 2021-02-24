@@ -2,7 +2,7 @@ import React from 'react';
 
 const Price = (props) => (
   <td>
-
+    {props.price}
   </td>
 );
 

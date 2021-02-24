@@ -64,11 +64,15 @@ class App extends React.Component {
 
   //get price
   getPrices () {
-    let productIds = this.state.ids;
-    axios.post('http://localhost:4003/priceandinventory/id/multiple', {
-      data: productIds })
+    const multipleIds = { ids: this.state.ids};
+    console.log(multipleIds);
+    axios.post('http://localhost:4003/priceandinventory/id/multiple', multipleIds.ids)
       .then(response => {
-        console.log('here', response);
+        let itemPrices = [];
+        for (let i = 0; i < response.data.length; i++) {
+          itemPrices.push(response.data[i].price);
+        }
+        this.setState({prices: itemPrices});
       })
       .catch(err => {
         console.log(err);
@@ -117,7 +121,7 @@ class App extends React.Component {
     return (
       <div>
         <Title>Comparison Service</Title>
-        <ItemList names={this.state.names} brands={this.state.brands}></ItemList>
+        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices}></ItemList>
       </div>
     );
   }
