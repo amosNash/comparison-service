@@ -18,6 +18,7 @@ class App extends React.Component {
     this.getItemDescription = this.getItemDescription.bind(this);
     this.getItemNames = this.getItemNames.bind(this);
     this.getItemBrands = this.getItemBrands.bind(this);
+    this.getPrices = this.getPrices.bind(this);
   }
 
   //get item info
@@ -33,6 +34,7 @@ class App extends React.Component {
         let itemDescriptions = response.data;
         this.getItemNames(itemDescriptions);
         this.getItemBrands(itemDescriptions);
+        this.getPrices();
       })
       .catch(err => {
         console.log(err);
@@ -58,12 +60,19 @@ class App extends React.Component {
     this.setState({
       brands: itemBrands
     });
-    console.log(this.state.brands);
   }
 
   //get price
-  getPrices (productIds) {
-    axios.post('http://ec2-3-141-67-137.us-east-2.compute.amazonaws.com:4003/priceandinventory/id/multiple');
+  getPrices () {
+    let productIds = this.state.ids;
+    axios.post('http://localhost:4003/priceandinventory/id/multiple', {
+      data: productIds })
+      .then(response => {
+        console.log('here', response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   //get photos
