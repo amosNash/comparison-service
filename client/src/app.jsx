@@ -12,7 +12,8 @@ class App extends React.Component {
       photos: [],
       names: [],
       prices: [],
-      brands: []
+      brands: [],
+      ratings: []
     };
     this.getSimilarItems = this.getSimilarItems.bind(this);
     this.getItemDescription = this.getItemDescription.bind(this);
@@ -20,6 +21,7 @@ class App extends React.Component {
     this.getItemBrands = this.getItemBrands.bind(this);
     this.getPrices = this.getPrices.bind(this);
     this.getPhotos = this.getPhotos.bind(this);
+    this.getRatings = this.getRatings.bind(this);
   }
 
   //get item info
@@ -37,6 +39,7 @@ class App extends React.Component {
         this.getItemBrands(itemDescriptions);
         this.getPrices();
         this.getPhotos();
+        this.getRatings();
       })
       .catch(err => {
         console.log(err);
@@ -66,7 +69,7 @@ class App extends React.Component {
 
   //get price
   getPrices () {
-    const multipleIds = { ids: this.state.ids};
+    let multipleIds = { ids: this.state.ids};
     axios.post('http://localhost:4003/priceandinventory/id/multiple', multipleIds.ids)
       .then(response => {
         let itemPrices = [];
@@ -82,7 +85,7 @@ class App extends React.Component {
 
   //get photos
   getPhotos () {
-    const productIds = { ids: this.state.ids};
+    let productIds = { ids: this.state.ids};
     axios.post('http://localhost:4002/photos/product/primary/multiple', productIds.ids)
       .then(response => {
         let itemPhotos = Object.values(response.data);
@@ -96,6 +99,23 @@ class App extends React.Component {
   }
 
   //get ratings
+  getRatings () {
+    let productIds = this.state.ids;
+    for (let i = 0; i < productIds.length; i++) {
+      axios.get(`http://localhost:4006/Reviews/getReviewSummary/${productIds[i]}`)
+        .then(response => {
+          let numOfRatings = response.data.totalRatings;
+          let newRatings = this.state.ratings;
+          newRatings.push(numOfRatings);
+          this.setState({
+            ratings: newRatings
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 
   //get items from comparison/getSimilarItems/comparison
   getSimilarItems (id) {
@@ -134,7 +154,7 @@ class App extends React.Component {
     return (
       <div>
         <Title>Comparison Service</Title>
-        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos}></ItemList>
+        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos} ratings={this.state.ratings}></ItemList>
       </div>
     );
   }

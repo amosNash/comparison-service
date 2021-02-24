@@ -3,6 +3,7 @@ import Name from './name.jsx';
 import Brand from './brand.jsx';
 import Price from './price.jsx';
 import Photo from './photo.jsx';
+import Rating from './rating.jsx';
 
 const ItemList = (props) => (
   //should be a table
@@ -31,6 +32,7 @@ const ItemList = (props) => (
     <br></br>
     <tr>
       <th>Number of Ratings</th>
+      {props.ratings.map(rating => <Rating rating={rating} />)}
     </tr>
     <br></br>
     <tr>
