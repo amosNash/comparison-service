@@ -11,6 +11,7 @@ const ItemList = (props) => (
   <table>
     <tr>
       <th></th>
+      {props.photos.map(photo => <Photo photo={photo} />)}
     </tr>
     <br></br>
     <tr>

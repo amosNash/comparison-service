@@ -19,6 +19,7 @@ class App extends React.Component {
     this.getItemNames = this.getItemNames.bind(this);
     this.getItemBrands = this.getItemBrands.bind(this);
     this.getPrices = this.getPrices.bind(this);
+    this.getPhotos = this.getPhotos.bind(this);
   }
 
   //get item info
@@ -35,6 +36,7 @@ class App extends React.Component {
         this.getItemNames(itemDescriptions);
         this.getItemBrands(itemDescriptions);
         this.getPrices();
+        this.getPhotos();
       })
       .catch(err => {
         console.log(err);
@@ -65,7 +67,6 @@ class App extends React.Component {
   //get price
   getPrices () {
     const multipleIds = { ids: this.state.ids};
-    console.log(multipleIds);
     axios.post('http://localhost:4003/priceandinventory/id/multiple', multipleIds.ids)
       .then(response => {
         let itemPrices = [];
@@ -80,7 +81,19 @@ class App extends React.Component {
   }
 
   //get photos
-
+  getPhotos () {
+    const productIds = { ids: this.state.ids};
+    axios.post('http://localhost:4002/photos/product/primary/multiple', productIds.ids)
+      .then(response => {
+        let itemPhotos = Object.values(response.data);
+        this.setState({
+          photos: itemPhotos
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   //get ratings
 
@@ -121,7 +134,7 @@ class App extends React.Component {
     return (
       <div>
         <Title>Comparison Service</Title>
-        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices}></ItemList>
+        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos}></ItemList>
       </div>
     );
   }
