@@ -4,6 +4,7 @@ import Brand from './brand.jsx';
 import Price from './price.jsx';
 import Photo from './photo.jsx';
 import Rating from './rating.jsx';
+import StarRating from './starRating.jsx';
 
 const ItemList = (props) => (
   //should be a table
@@ -37,6 +38,7 @@ const ItemList = (props) => (
     <br></br>
     <tr>
       <th>Star Rating</th>
+      {props.starRatings.map(starRating => <StarRating starRating={starRating}/>)}
     </tr>
   </table>
 );

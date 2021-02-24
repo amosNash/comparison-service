@@ -13,7 +13,8 @@ class App extends React.Component {
       names: [],
       prices: [],
       brands: [],
-      ratings: []
+      ratings: [],
+      starRatings: []
     };
     this.getSimilarItems = this.getSimilarItems.bind(this);
     this.getItemDescription = this.getItemDescription.bind(this);
@@ -105,10 +106,15 @@ class App extends React.Component {
       axios.get(`http://localhost:4006/Reviews/getReviewSummary/${productIds[i]}`)
         .then(response => {
           let numOfRatings = response.data.totalRatings;
+          let starRating = response.data.averageRating;
+          starRating = parseInt(starRating);
           let newRatings = this.state.ratings;
           newRatings.push(numOfRatings);
+          let newStarRatings = this.state.starRatings;
+          newStarRatings.push(starRating);
           this.setState({
-            ratings: newRatings
+            ratings: newRatings,
+            starRatings: newStarRatings
           });
         })
         .catch(err => {
@@ -116,6 +122,7 @@ class App extends React.Component {
         });
     }
   }
+
 
   //get items from comparison/getSimilarItems/comparison
   getSimilarItems (id) {
@@ -154,7 +161,7 @@ class App extends React.Component {
     return (
       <div>
         <Title>Comparison Service</Title>
-        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos} ratings={this.state.ratings}></ItemList>
+        <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos} ratings={this.state.ratings} starRatings={this.state.starRatings}></ItemList>
       </div>
     );
   }
