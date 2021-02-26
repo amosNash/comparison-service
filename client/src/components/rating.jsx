@@ -1,9 +1,9 @@
 import React from 'react';
-import { TD } from '../../style.js';
+import { TD, RatingText } from '../../style.js';
 
 const Rating = (props) => (
   <TD>
-    {props.rating}
+    <RatingText>{props.rating}</RatingText>
   </TD>
 );
 

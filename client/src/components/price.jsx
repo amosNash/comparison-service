@@ -1,9 +1,9 @@
 import React from 'react';
-import { TD } from '../../style.js';
+import { TD, PriceText } from '../../style.js';
 
 const Price = (props) => (
   <TD>
-    {props.price}
+    From: <PriceText>${props.price}</PriceText>
   </TD>
 );
 

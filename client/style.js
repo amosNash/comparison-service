@@ -43,8 +43,28 @@ const Image = styled.td`
   text-align: center;
 `;
 
+const PriceText = styled.p`
+  color: #B12704;
+  font-size: 24px;
+  line-height: 32px;
+  display: inline;
+`;
+
+const RatingText = styled.p`
+  font-size: 12px;
+  line-height: 16px;
+  font-family: Arial, sans-serif;
+  color: #007185;
+  &:hover {
+    color: #C7511F;
+    cursor: pointer;
+  }
+`;
+
 
 export {
+  RatingText,
+  PriceText,
   Image,
   TD,
   TH,
