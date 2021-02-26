@@ -63,6 +63,9 @@ const RatingText = styled.p`
 
 const Heading = styled.h2`
   text-align: center;
+  padding-right: 250px;
+  margin-bottom: 60px;
+  font-size: 35px;
 `;
 
 const NameText = styled.p`
