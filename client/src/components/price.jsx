@@ -1,9 +1,10 @@
 import React from 'react';
+import { TD } from '../../style.js';
 
 const Price = (props) => (
-  <td>
+  <TD>
     {props.price}
-  </td>
+  </TD>
 );
 
 export default Price;

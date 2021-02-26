@@ -5,7 +5,7 @@ import Price from './price.jsx';
 import Photo from './photo.jsx';
 import Rating from './rating.jsx';
 import StarRating from './starRating.jsx';
-import { CompareTable, TrOdd } from '../../style.js';
+import { CompareTable, TrOdd, TH} from '../../style.js';
 
 const ItemList = (props) => (
   //should be a table
@@ -16,29 +16,24 @@ const ItemList = (props) => (
       <th></th>
       {props.photos.map(photo => <Photo photo={photo} />)}
     </tr>
-    <br></br>
     <TrOdd>
-      <th>Name</th>
+      <TH>Name</TH>
       {props.names.map(name => <Name name={name}/>)}
     </TrOdd>
-    <br></br>
     <tr>
-      <th>Brand</th>
+      <TH>Brand</TH>
       {props.brands.map(brand => <Brand brand={brand}/>)}
     </tr>
-    <br></br>
     <TrOdd>
-      <th>Price</th>
+      <TH>Price</TH>
       {props.prices.map(price => <Price price={price} />)}
     </TrOdd>
-    <br></br>
     <tr>
-      <th>Number of Ratings</th>
+      <TH>Number of Ratings</TH>
       {props.ratings.map(rating => <Rating rating={rating} />)}
     </tr>
-    <br></br>
     <TrOdd>
-      <th>Star Rating</th>
+      <TH>Star Rating</TH>
       {props.starRatings.map(starRating => <StarRating starRating={starRating}/>)}
     </TrOdd>
   </CompareTable>

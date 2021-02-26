@@ -1,9 +1,10 @@
 import React from 'react';
+import { TD } from '../../style.js';
 
 const Rating = (props) => (
-  <td>
+  <TD>
     {props.rating}
-  </td>
+  </TD>
 );
 
 export default Rating;
