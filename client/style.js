@@ -61,8 +61,17 @@ const RatingText = styled.p`
   }
 `;
 
+const Heading = styled.h2`
+  text-align: center;
+`;
+
+const NameText = styled.p`
+  text-transform: capitalize;
+`;
 
 export {
+  NameText,
+  Heading,
   RatingText,
   PriceText,
   Image,

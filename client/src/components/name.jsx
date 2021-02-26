@@ -1,9 +1,9 @@
 import React from 'react';
-import { TD } from '../../style.js';
+import { TD, NameText } from '../../style.js';
 
 const Name = (props) => (
   <TD>
-    {props.name}
+    <NameText>{props.name}</NameText>
   </TD>
 );
 
