@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Title } from '../style.js';
+import { Heading } from '../style.js';
 import ItemList from './components/itemList.jsx';
 import axios from 'axios';
 
@@ -160,7 +160,9 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Title>Comparison Service</Title>
+        <div>
+          <Heading>Compare Devices</Heading>
+        </div>
         <ItemList names={this.state.names} brands={this.state.brands} prices={this.state.prices} photos={this.state.photos} ratings={this.state.ratings} starRatings={this.state.starRatings}></ItemList>
       </div>
     );

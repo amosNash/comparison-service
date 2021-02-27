@@ -5,42 +5,38 @@ import Price from './price.jsx';
 import Photo from './photo.jsx';
 import Rating from './rating.jsx';
 import StarRating from './starRating.jsx';
+import { CompareTable, TrOdd, TH} from '../../style.js';
 
 const ItemList = (props) => (
   //should be a table
   //need to filter out photos, name, brand, price, number of ratings, star rating
 
-  <table>
+  <CompareTable>
     <tr>
       <th></th>
       {props.photos.map(photo => <Photo photo={photo} />)}
     </tr>
-    <br></br>
-    <tr>
-      <th>Name</th>
+    <TrOdd>
+      <TH>Name</TH>
       {props.names.map(name => <Name name={name}/>)}
-    </tr>
-    <br></br>
+    </TrOdd>
     <tr>
-      <th>Brand</th>
+      <TH>Brand</TH>
       {props.brands.map(brand => <Brand brand={brand}/>)}
     </tr>
-    <br></br>
-    <tr>
-      <th>Price</th>
+    <TrOdd>
+      <TH>Price</TH>
       {props.prices.map(price => <Price price={price} />)}
-    </tr>
-    <br></br>
+    </TrOdd>
     <tr>
-      <th>Number of Ratings</th>
+      <TH>Number of Ratings</TH>
       {props.ratings.map(rating => <Rating rating={rating} />)}
     </tr>
-    <br></br>
-    <tr>
-      <th>Star Rating</th>
+    <TrOdd>
+      <TH>Star Rating</TH>
       {props.starRatings.map(starRating => <StarRating starRating={starRating}/>)}
-    </tr>
-  </table>
+    </TrOdd>
+  </CompareTable>
 );
 
 

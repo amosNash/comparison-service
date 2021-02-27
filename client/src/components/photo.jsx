@@ -1,9 +1,12 @@
 import React from 'react';
+import { Image } from '../../style.js';
 
 const Photo = (props) => (
-  <td>
-    <img src={props.photo} width="120" height="120" ></img>
-  </td>
+
+  <Image>
+    <img src={props.photo} width="120" height="120"></img>
+  </Image>
+
 );
 
 export default Photo;

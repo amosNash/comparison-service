@@ -1,18 +1,10 @@
 import React from 'react';
+import { TD, NameText } from '../../style.js';
 
 const Name = (props) => (
-  <td>
-    {props.name}
-  </td>
-  //info to display
-  //photo --> photo service
-  //name -->description service
-  //brand  -->description service
-  //price --> checkout service
-  //rating (number) --> review service
-  //number of star ratings --> review service
-
-  //
+  <TD>
+    <NameText>{props.name}</NameText>
+  </TD>
 );
 
 export default Name;
